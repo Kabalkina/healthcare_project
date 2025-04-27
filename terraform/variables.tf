@@ -17,7 +17,7 @@ variable "location" {
 
 variable "bq_dataset_name" {
   description = "My BigQuery Dataset Name"
-  default     = "orthopedic-surgeries_dataset"
+  default     = "orthopedic_surgeries_dataset"
 }
 
 variable "gcs_bucket_name" {
