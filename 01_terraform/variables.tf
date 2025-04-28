@@ -6,13 +6,13 @@ variable "project" {
 variable "region" {
   description = "Region"
   #Update the below to your desired region
-  default     = "europe-west1-b"
+  default     = "europe-west2"
 }
 
 variable "location" {
   description = "Project Location"
   #Update the below to your desired location
-  default     = "EU"
+  default     = "europe-west2"
 }
 
 variable "bq_dataset_name" {
