@@ -12,7 +12,7 @@ tasks:
     type: io.kestra.plugin.core.kv.Set
     key: GCP_LOCATION
     kvType: STRING
-    value: europe-west1-b
+    value: europe-west2
 
   - id: gcp_bucket_name
     type: io.kestra.plugin.core.kv.Set
@@ -24,4 +24,4 @@ tasks:
     type: io.kestra.plugin.core.kv.Set
     key: GCP_DATASET
     kvType: STRING
-    value: orthopedic-surgeries
+    value: orthopedic_surgeries_dataset
