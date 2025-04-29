@@ -1,0 +1,121 @@
+version: 2
+
+sources:
+  - name: staging
+    description: >
+      Raw GENEMIS data containing hospital diagnoses (ICD codes) statistics 
+      for in-patients in Germany between 2021 and 2023.
+    database: orthopedic-surgeries
+    schema: orthopedic_surgeries_dataset
+
+    tables:
+      - name: healthcare_data
+        description: >
+          Original GENEMIS hospital diagnoses dataset with detailed breakdowns 
+          by year, sex, age group, and ICD-10 diagnosis group.
+        
+
+models:
+  - name: stg_healthcare_data
+    description: >
+      Staging model for GENEMIS healthcare diagnoses data.
+      This view extracts key fields with clear naming and typing, 
+      to enable downstream ICD-based analysis by year, sex, and age group.
+    columns:
+      - name: unique_row_id
+        description: Unique identifier for the row.
+        tests:
+          - not_null
+          - unique
+
+      - name: filename
+        description: Name of the source file.
+
+      - name: statistics_code
+        description: Code of the statistic (23131 = diagnoses of hospital in-patients).
+
+      - name: statistics_label
+        description: Description of the statistic.
+
+      - name: time_code
+        description: Time code (e.g. JAHR).
+
+      - name: time_label
+        description: Time label (usually 'Year').
+
+      - name: year
+        description: Year of the data.
+        tests:
+          - not_null
+
+      - name: one_variable_code
+        description: First dimension code (e.g., DINSG).
+
+      - name: one_variable_label
+        description: First dimension label (e.g., Germany).
+
+      - name: one_variable_attribute_code
+        description: First attribute code (e.g., DG).
+
+      - name: country
+        description: Country name (e.g., Germany).
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Germany']
+
+      - name: two_variable_code
+        description: Second dimension code (e.g., GES = Sex).
+
+      - name: two_variable_label
+        description: Second dimension label.
+
+      - name: two_variable_attribute_code
+        description: Code for sex (e.g., GESM, GESW).
+
+      - name: sex
+        description: Sex of the patient.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Male', 'Female']
+
+      - name: three_variable_code
+        description: Third dimension code (e.g., ALT112 = Age groups).
+
+      - name: three_variable_label
+        description: Third dimension label.
+
+      - name: three_variable_attribute_code
+        description: Age group code.
+
+      - name: age_group
+        description: Age group (e.g., under 1 year).
+
+      - name: four_variable_code
+        description: ICD code grouping variable code.
+
+      - name: four_variable_label
+        description: ICD variable label (e.g., ICD-10 1-digit).
+
+      - name: icd_category_code
+        description: ICD-10 code group (e.g., ICD10-I00-I99).
+
+      - name: icd_category_label
+        description: ICD-10 code description (e.g., circulatory diseases).
+        tests:
+          - not_null
+
+      - name: diagnosis_count
+        description: Number of diagnoses.
+        tests:
+          - not_null
+
+      - name: value_unit
+        description: Unit of measurement (e.g., number).
+
+      - name: value_variable_code
+        description: Code of value column (e.g., GES025).
+
+      - name: value_variable_label
+        description: Label for value column (e.g., patients discharged from hospital).

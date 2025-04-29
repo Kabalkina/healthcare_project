@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: fact_diagnosis
+    description: >
+      Final fact table used in the dashboard to analyze hospital in-patient diagnoses 
+      by ICD-10 category, year, sex, and age group.
+    columns:
+      - name: year
+        description: Year of diagnosis.
+        tests:
+          - not_null
+
+      - name: sex
+        description: Sex of the patient.
+        tests:
+          - not_null
+
+      - name: age_group
+        description: Age group of the patient.
+        tests:
+          - not_null
+
+      - name: icd_category_code
+        description: ICD-10 1-digit diagnosis code (e.g., ICD10-I00-I99).
+        tests:
+          - not_null
+
+      - name: icd_category_label
+        description: Label describing the ICD-10 diagnosis category.
+        tests:
+          - not_null
+
+      - name: total_diagnoses
+        description: Number of diagnoses recorded for the given combination.
+        tests:
+          - not_null
