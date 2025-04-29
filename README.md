@@ -15,6 +15,24 @@ This project focuses on analyzing healthcare data in Germany from 2021 to 2023 b
    - **Tool**: Kestra
    - **Process**: Automates the download of healthcare data from GENESIS-Online and uploads it to Google Cloud Storage (GCS).
 
+### Flow Description and Topology
+
+| Step | Task                     | Behavior                              |
+|------|--------------------------|---------------------------------------|
+| 1    | extract + upload_to_gcs  | Download & upload raw CSV            |
+| 2    | bq_healthcare_data       | Ensure final table structure          |
+| 3    | bq_healthcare_table_ext  | External table with explicit schema   |
+| 4    | bq_healthcare_table_tmp  | Rename "bad" columns to proper names  |
+| 5    | bq_merge                 | Merge into final dataset              |
+| 6    | purge_files              | Clean temporary files                 |
+
+<p align="center">
+    <img src="images/kestra_topology.png" alt="Kestra Topology" width="600px">
+</p>
+
+The image above illustrates the Kestra workflow topology, showcasing the automated steps involved in the data ingestion process. Each step is designed to ensure seamless data flow from raw extraction to final dataset preparation.
+
+
 2. **Infrastructure Setup**:
    - **Tool**: Terraform
    - **Process**: Provisions cloud resources such as GCS buckets and BigQuery datasets.
@@ -22,6 +40,15 @@ This project focuses on analyzing healthcare data in Germany from 2021 to 2023 b
 3. **Data Transformation**:
    - **Tool**: DBT (Data Build Tool)
    - **Process**: Cleans, transforms, and models the raw data into analytics-ready tables in BigQuery.
+
+### Data Lineage Graph
+
+As part of the **Data Transformation** process, the following lineage graph illustrates the flow of data from raw ingestion to analytics-ready tables:
+
+<p align="center">
+    <img src="images/lineage_graph.png" alt="Lineage Graph" width="600px">
+</p>
+    
 
 4. **Data Analysis**:
    - **Tool**: BigQuery
@@ -102,7 +129,15 @@ The dataset includes hospital in-patient diagnoses categorized by ICD-10 codes. 
 The project includes an interactive dashboard built using **Google Looker**. The dashboard provides visual insights into healthcare trends, such as:
 
 - Diagnosis trends over time.
-- Gender and age group distributions.
+- Age group distributions.
 - ICD-10 code-specific analysis.
+
+## Dashboard Preview
+
+Below is a preview of the interactive dashboard:
+
+<p align="center">
+    <img src="images/dashboard.png" alt="Dashboard Preview" width="600px">
+</p>
 
 Access the dashboard [here]https://lookerstudio.google.com/reporting/554487eb-9667-4d0d-9e56-764cbd0e05df
