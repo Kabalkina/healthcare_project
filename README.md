@@ -60,8 +60,33 @@ As part of the **Data Transformation** process, the following lineage graph illu
 
 
 ## Folder Structure
-
-├── .gitignore ├── README.md ├── get_data_schema.ipynb ├── 01_terraform/ │ ├── main.tf │ ├── variables.tf ├── 02_workflow_orchestration/ │ ├── 01_kv.yaml │ ├── 02_gc_flow.yaml │ ├── docker-compose.yml ├── 03_analytics_engineering/ │ ├── .gitignore │ ├── dbt_project.yml │ ├── README.md │ ├── analyses/ │ │ └── .gitkeep │ ├── macros/ │ │ └── .gitkeep │ ├── models/ │ │ ├── core/ │ │ │ └── schema.yml │ │ ├── staging/ │ │ ├── schema.yml │ │ └── stg_healthcare_data.sql │ ├── seeds/ │ ├── snapshots/ │ ├── tests/ ├── data/ │ ├── 23131-0002_en_2021.csv │ ├── 23131-0002_en_2022.csv │ ├── 23131-0002_en_2023.csv 
+```
+├── .gitignore
+├── README.md
+├── get_data_schema.ipynb
+├── 01_terraform/
+│   ├── main.tf
+│   ├── variables.tf
+├── 02_workflow_orchestration/
+│   ├── 01_kv.yaml
+│   ├── 02_gc_flow.yaml
+│   ├── docker-compose.yml
+├── 03_analytics_engineering/
+│   ├── .gitignore
+│   ├── dbt_project.yml
+│   ├── README.md
+│   ├── models/
+│   │   ├── core/
+│   │   │   ├──schema.yml
+│   │   │   └── fact_diagnosis.sql
+│   │   ├── staging/
+│   │   │   ├── schema.yml
+│   │   │   └── stg_healthcare_data.sql
+├── data/
+│   ├── 23131-0002_en_2021.csv
+│   ├── 23131-0002_en_2022.csv
+│   ├── 23131-0002_en_2023.csv
+```
 
 
 ### Folder Descriptions
