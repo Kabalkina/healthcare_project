@@ -3,7 +3,6 @@
 ![Project Status](https://img.shields.io/badge/status-active-brightgreen)
 ![Cloud](https://img.shields.io/badge/cloud-GCP-blue)
 ![Tooling](https://img.shields.io/badge/tools-Kestra%20%7C%20DBT%20%7C%20Terraform%20%7C%20BigQuery-orange)
-![License](https://img.shields.io/badge/license-MIT-green)
 
 > A cloud-integrated data engineering project analyzing German healthcare diagnosis data using ICD-10 codes (2021–2023). Built using GCP, DBT, Kestra, Terraform, and Looker Studio.
 
@@ -16,11 +15,12 @@
 - [Objectives](#objectives)
 - [Workflow Overview](#workflow-overview)
 - [Folder Structure](#-folder-structure)
-- [Data Overview](#-data-overview)
+- [Folder Descriptions](#-folder-descriptions)
+- [Final Data Overview](#-data-overview)
+- [Data Model Screenshots](#-data-model-screenshots)
 - [How to Run](#-how-to-run)
 - [Visualization Dashboard](#visualization-dashboard)
-- [Testing](#-testing)
-- [License](#-license)
+- [Key Features](#-key-features)
 
 ---
 
@@ -218,5 +218,3 @@ The project includes an interactive dashboard built using **Google Looker**. The
 - **Cloud-Native Architecture**: Utilizes Google Cloud Platform (GCP) services like GCS and BigQuery.
 - **Scalable Analytics**: DBT models enable scalable and reusable data transformations.
 - **ICD-10 Analysis**: Provides insights into healthcare trends based on ICD-10 codes.
-
----
