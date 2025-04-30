@@ -16,7 +16,7 @@
 - [Workflow Overview](#workflow-overview)
 - [Folder Structure](#-folder-structure)
 - [Folder Descriptions](#-folder-descriptions)
-- [Final Data Overview](#-data-overview)
+- [Final Data Overview](#-final-data-overview)
 - [Data Model Screenshots](#-data-model-screenshots)
 - [How to Run](#-how-to-run)
 - [Visualization Dashboard](#visualization-dashboard)
